@@ -75,28 +75,16 @@ function WoodDetail(title) {
     });
   };
 
-
-
-
-  // if (likes) {
-  //     return <FilledHeartIcon onClick={handleLike} />;
-  //   }
-
-  //   if (!likes) {
-  //     return <HeartIcon onClick={handleLike} />;
-  //   }
-
-
   if (!wood) return <></>
 
   return (
 
-
-    <section className="mainmi">
-      <div className="wrapper">
+<body className="body-detail">
+   
+      <div className="wrappers">
         <div className="left-col">
 
-          <div className="post">
+          <div className="post-detail">
             <div className="user">
               <div className="info">
                 <div class="profile-pic"><img className='imgdetail' src={wood.author?.image} alt={title} /></div>
@@ -142,8 +130,6 @@ function WoodDetail(title) {
                   
                
                 </button>
-
-                 
 
 
                 <button className="botonlikeusu me-2" onClick={handleWarning}>
@@ -195,9 +181,6 @@ function WoodDetail(title) {
                 <p class="post-time">{wood.location}</p>
               <p class="description"><span></span>{wood.effort}</p>
 
-
-              {/* <li onClick={handleClick} class="post-time">Delete</li> */}
-
               </div>
 
               <form onSubmit={handleNewComment} className="mb-3 mt-3">
@@ -228,7 +211,7 @@ function WoodDetail(title) {
           </div>
         </div>
       </div>
-    </section>
+    </body>
 
   )
 

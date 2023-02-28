@@ -100,6 +100,10 @@ function Navbar() {
           
 
         </div>
+
+        <div className="icon-menu">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+        </div>
         
       </div>
 

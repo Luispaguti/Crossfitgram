@@ -9,30 +9,6 @@ import '../wood-detail/WoodDetail.css'
 
 function WoodItem({ title, scaled, image, category, id, author, description, exercise, location, reps, weight, time, kcal, score, effort, classType }) {
 
-  // const { woodId } = useParams()
-
-
-
-
-
-  // const handleClick = () => {
-  //   deleteFromList(id)
-  // }
-
-  //LIKE
-  // voy a crear una función en el padre (WoodItem) y se la paso al hijo (WoodLike)
-
-
-  // const [likes, setLikes] = useState(0);
-  
-  // // const [likes, setLikes] = useState(wood.likes);
-
-  // const incLikes = () => setLikes(likes + 1);
-  // const decLikes = () => setLikes(likes - 1);
-
-  // console.log(likes)
-  console.log(author?.image)
-
   return (
     <>
       <section className="main">
@@ -66,7 +42,6 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                 <p class="description"><span> Con un peso de </span>{weight} kg</p>
                 <p class="description"><span>En un tiempo de </span>{time} minutos</p>
                 <p class="description"><span>Quemando </span>{kcal} calorías</p>
-                {/* <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p> */}
                 <p class="description"><span>Anotaciones</span>{description}</p>
                 <p class="description"><span>Puntuacion del Wood</span>{score} puntos</p>
                 </div>
@@ -77,16 +52,7 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                 </Link><Link to={`/`} className="linkdetail"><p class="descriptiondetail">Back ...</p></Link>
     
                 </div>
-                
-
-                
-
-                
-              
-
-                  {/* <li onClick={handleClick} class="post-time">Delete</li> */}
-
-                  
+       
                 </div>
                 
               </div>

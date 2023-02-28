@@ -51,4 +51,7 @@ router.post("/profile/:id/warning", secure.isAuthenticated, warning.create);
 router.get("/profile/:id/streams", secure.isAuthenticated, user.streamsOwned);
 router.get("/profile/:id/woods", secure.isAuthenticated, user.woodsOwned);
 
+router.use((req, res, next) => next(createError(404, "Route not found")));
+//Middleware de errors, error.messa ge= route not found, res.json +-=res.render xq esta api solo queremos que devuelva json,
+
 module.exports = router;
