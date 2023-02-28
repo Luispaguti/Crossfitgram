@@ -49,7 +49,7 @@ module.exports.authenticate = (req, res, next) => {
           if (match) {
             // ahora nos queda autenticar, generar esa cookie de sesion , y sobre el req.session vamos a tener un userId que hace referencia al user.id
             req.session.userId = user.id;
-            res.status(201).json(user);
+            res.status(200).json(user);
           } else {
             invalidAuthError();
           }

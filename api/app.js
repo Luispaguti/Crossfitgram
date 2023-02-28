@@ -16,13 +16,12 @@ app.use(express.static(`${__dirname}/react-app`));
 // Cross Origin request; es decir dice que es una petición con un dominio cruzado 
 // el react se está poniendo en un host diferente q el backend 
 app.use((req, res, next) => {
-  res.set("Access-Control-Allow-Origin", process.env.CORS_ORIGIN || "http://localhost:3000");
+  res.set("Access-Control-Allow-Origin", "http://localhost:3000"); // ell navegador dice que si quieres que te hagan peticiones desde otro dominio,en la petición http de respuesta me tienes q devolver esa cabecera
   res.set("Access-Control-Allow-Headers", "content-type");
   res.set("Access-Control-Allow-Methods", "*");// que permites que haga una peticion de get, un post , put y un delete, me tienes q devolver esa cabecera 
   res.set("Access-Control-Allow-Credentials", "true");// con esto al navegador le dice si, aunque sea otro dominio enviame la cookie 
   next();
 });
-
 
 
 app.use(express.json());
@@ -42,6 +41,7 @@ app.use('/api/v1', routes);
 // desde que path queremos empezar y le pasamos las routes
 //una api rest siempre tiene que estar versionada por lo que el path base en vez de ser /, suele ser /api/v1,
 //versionarla es importante para que cuando nuestro software este desplegado en produccion haya un momento en el que podamos evolucionar a v2 y a la par seguir dando un servicio
+routes.use((req, res, next) => next(createError(404, "Route not found")));
 
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/react-app/index.html`);
@@ -69,12 +69,5 @@ app.use((error, req, res, next) => {
 
 
 
-if (process.env.NODE_ENV !== "test") {
-  const port = process.env.PORT || 3001;
-
-  app.listen(port, () =>
-    console.log(`Crossfitgram running at port ${port}`)
-  );
-}
-
-module.exports = app;
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`crossfit rss listen at port ${port}`))
