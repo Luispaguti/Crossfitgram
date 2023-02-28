@@ -40,7 +40,7 @@ function HomeScreen() {
         
           
           
-            {streams.slice(0).reverse().map(stream =>
+            {stream && streams.slice(0).reverse().map(stream =>
               <button className='story' >
                 <div className="profilestory">
 
