@@ -10,6 +10,7 @@ COPY api /opt/api
 WORKDIR /opt/api
 
 RUN npm ci --only=production
+
 COPY --from=react-build /opt/web/build /opt/api/react-app
 EXPOSE 3001
 
